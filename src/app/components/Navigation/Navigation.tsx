@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function Navigation():JSX.Element {
-    return (
-        <div>
-            
-        </div>
-    )
+export default function Navigation(): JSX.Element {
+  return (
+      <ul>
+        <li>Home</li>
+        <li>Search</li>
+        <li>Bookmarks</li>
+      </ul>
+  );
 }
