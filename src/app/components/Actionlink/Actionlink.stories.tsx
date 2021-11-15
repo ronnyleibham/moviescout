@@ -1,10 +1,11 @@
 import React from 'react';
-import Actionlink from './Actionlink';
+import ActionLink from './Actionlink';
 
 export default {
   title: 'Component/Actionlink',
-  component: Actionlink,
+  component: ActionLink,
 };
 
-export const Imdb = (): JSX.Element =>
-  Actionlink({ url: 'Imdb.com', text: 'Visit Imdb' });
+export const Imdb = (): JSX.Element => (
+  <ActionLink url={'http://www.imdb.com'} text={'To imdb'} />
+);
