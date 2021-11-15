@@ -11,3 +11,4 @@ export default {
 export const Regular = (): JSX.Element => (
     <Header>Top Five</Header>
 );
+
