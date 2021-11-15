@@ -1,5 +1,6 @@
 import React from 'react';
 import type { ReactNode } from 'react';
+import styled from 'styled-components';
 
 type HeaderProps = {
     children: ReactNode;
@@ -7,6 +8,18 @@ type HeaderProps = {
 
 export default function Header({children}: HeaderProps): JSX.Element{
     return (
-        <h1>{children}<span>.</span></h1>
+        <H1>{children}<Span>.</Span></H1>
     )
 }
+
+const H1 = styled.h1`
+    color: #fff;
+    font-family: Poppins;
+    background-color: #111;
+    font-weight: bold;
+    font-size: 30px;
+`;
+
+const Span = styled.span`
+    color: #ffc700;
+`
