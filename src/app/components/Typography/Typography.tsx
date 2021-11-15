@@ -7,14 +7,7 @@ type TypographyProps = {
 };
 
 function Typography({ type, children }: TypographyProps): JSX.Element {
-  const ElementMap = {
-    h1: H1,
-    h2: H2,
-    h3: H3,
-    h4: H4,
-  };
-
-  const Heading = ElementMap[type];
+  const Heading = ELEMENTMAP[type];
 
   return <Heading>{children}</Heading>;
 }
@@ -38,3 +31,10 @@ const H4 = styled.h3`
   font-size: 1.125rem;
   font-weight: 400;
 `;
+
+const ELEMENTMAP = {
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  h4: H4,
+};
