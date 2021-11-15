@@ -15,10 +15,10 @@ export default Heading;
 const H2 = styled.h2`
   font-size: 30px;
   line-height: 45px;
-  background-color: black;
+  font-weight: 700;
 `;
 const H3 = styled.h3`
   font-size: 20px;
   line-height: 30px;
-  background-color: black;
+  font-weight: 700;
 `;
