@@ -5,51 +5,47 @@ import BookmarkIcon from '../Icons/BookmarkIcon';
 import SearchIcon from '../Icons/SearchIcon';
 import HomeIcon from '../Icons/HomeIcon';
 
-const [isHomeActive, setIsHomeActive] = useState(true);
-const [isSearchActive, setIsSearchActive] = useState(false);
-const [isBookmarksActive, setIsBookmarksActive] = useState(false);
-
 export default function Navigation(): JSX.Element {
+  const [isHomeActive, setIsHomeActive] = useState<boolean>(true);
+  const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
+  const [isBookmarksActive, setIsBookmarksActive] = useState<boolean>(false);
   return (
     <List>
       <li>
-        <StyledLink
+        <Link
           to="/"
           onClick={() => {
             setIsHomeActive(true);
             setIsBookmarksActive(false);
             setIsSearchActive(false);
           }}
-          status={isHomeActive}
         >
-          <HomeIcon fill={isHomeActive ? 'yellow' : 'none'} />
-        </StyledLink>
+          <HomeIcon stroke={isHomeActive ? 'yellow' : 'white'} />
+        </Link>
       </li>
       <li>
-        <StyledLink
+        <Link
           to="/search"
           onClick={() => {
             setIsHomeActive(false);
             setIsBookmarksActive(false);
             setIsSearchActive(true);
           }}
-          status={isSearchActive}
         >
-          <SearchIcon fill={isHomeActive ? 'yellow' : 'none'} />
-        </StyledLink>
+          <SearchIcon stroke={isSearchActive ? 'yellow' : 'white'} />
+        </Link>
       </li>
       <li>
-        <StyledLink
+        <Link
           to="/bookmarks"
           onClick={() => {
             setIsHomeActive(false);
             setIsBookmarksActive(true);
             setIsSearchActive(false);
           }}
-          status={isBookmarksActive}
         >
-          <BookmarkIcon fill={isHomeActive ? 'yellow' : 'none'} />
-        </StyledLink>
+          <BookmarkIcon stroke={isBookmarksActive ? 'yellow' : 'white'} />
+        </Link>
       </li>
     </List>
   );
@@ -64,12 +60,4 @@ const List = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-`;
-
-type LinkProps = {
-  status: boolean;
-};
-
-const StyledLink = styled(Link)<LinkProps>`
-  text-decoration: none;
 `;
