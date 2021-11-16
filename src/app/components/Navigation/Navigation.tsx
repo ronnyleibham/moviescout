@@ -1,50 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import BookmarkIcon from '../Icons/BookmarkIcon';
 import SearchIcon from '../Icons/SearchIcon';
 import HomeIcon from '../Icons/HomeIcon';
 
-export default function Navigation(): JSX.Element {
-  const [isHomeActive, setIsHomeActive] = useState<boolean>(true);
-  const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
-  const [isBookmarksActive, setIsBookmarksActive] = useState<boolean>(false);
+type NavigationProps = {
+  activeLink: 'home' | 'search' | 'bookmark';
+};
+
+export default function Navigation({
+  activeLink,
+}: NavigationProps): JSX.Element {
   return (
     <List>
       <li>
-        <Link
-          to="/"
-          onClick={() => {
-            setIsHomeActive(true);
-            setIsBookmarksActive(false);
-            setIsSearchActive(false);
-          }}
-        >
-          <HomeIcon stroke={isHomeActive ? 'yellow' : 'white'} />
+        <Link to="/">
+          <HomeIcon
+            stroke={activeLink === 'home' ? 'yellow' : 'white'}
+            fill={activeLink === 'home' ? 'yellow' : 'none'}
+          />
         </Link>
       </li>
       <li>
-        <Link
-          to="/search"
-          onClick={() => {
-            setIsHomeActive(false);
-            setIsBookmarksActive(false);
-            setIsSearchActive(true);
-          }}
-        >
-          <SearchIcon stroke={isSearchActive ? 'yellow' : 'white'} />
+        <Link to="/search">
+          <SearchIcon
+            stroke={activeLink === 'search' ? 'yellow' : 'white'}
+            fill={activeLink === 'search' ? 'yellow' : 'none'}
+          />
         </Link>
       </li>
       <li>
-        <Link
-          to="/bookmarks"
-          onClick={() => {
-            setIsHomeActive(false);
-            setIsBookmarksActive(true);
-            setIsSearchActive(false);
-          }}
-        >
-          <BookmarkIcon stroke={isBookmarksActive ? 'yellow' : 'white'} />
+        <Link to="/bookmarks">
+          <BookmarkIcon
+            stroke={activeLink === 'bookmark' ? 'yellow' : 'white'}
+            fill={activeLink === 'bookmark' ? 'yellow' : 'none'}
+          />
         </Link>
       </li>
     </List>
