@@ -1,55 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { ReactNode } from 'react';
 import styled from 'styled-components';
+import BookmarkIcon from '../Icons/BackIcon';
 
 type HeaderProps = {
   children: ReactNode;
-  style: string;
+  style: 'regular' | 'withBackButton' | 'actionOnly';
+  color?: 'yellow';
 };
 
 export default function Header({ children, style }: HeaderProps): JSX.Element {
-  const [headerStyle, setHeaderStyle] = useState('');
-
-  useEffect(() => setHeaderStyle(style));
-
   return (
-    <div>
-      {headerStyle === 'regular' && (
-        <Container>
-          <H1>
-            {children}
-            <Span>.</Span>
-          </H1>
-        </Container>
+    <Container>
+      {style === 'regular' && (
+        <H1>
+          {children}
+          <Span>.</Span>
+        </H1>
       )}
-      {headerStyle === 'withBackButton' && (
-        <Container>
-          <H1>
-            <BackButton__yellow>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </BackButton__yellow>
-            {children}
-            <Span>.</Span>
-          </H1>
-        </Container>
+      {style === 'withBackButton' && (
+        <H1>
+          <BackButton>
+            <BookmarkIcon color="yellow" />
+          </BackButton>
+          {children}
+          <Span>.</Span>
+        </H1>
       )}
-      {headerStyle === 'actionOnly' && (
-        <Container>
-          <BackButton__white>
+      {style === 'actionOnly' && (
+        <>
+          <BackButton>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -65,7 +45,7 @@ export default function Header({ children, style }: HeaderProps): JSX.Element {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-          </BackButton__white>
+          </BackButton>
           <Bookmark>
             <svg
               width="17"
@@ -81,22 +61,15 @@ export default function Header({ children, style }: HeaderProps): JSX.Element {
               />
             </svg>
           </Bookmark>
-        </Container>
+        </>
       )}
-    </div>
+    </Container>
   );
 }
 
-const BackButton__white = styled.button`
+const BackButton = styled.button`
   background-color: #111;
-  color: #fff;
-  padding-right: 25px;
-  border: none;
-`;
-
-const BackButton__yellow = styled.button`
-  background-color: #111;
-  color: #ffc700;
+  color: ${(props) => (props.color === 'yellow' ? '#ffc700' : '#fff')};
   padding-right: 25px;
   border: none;
 `;

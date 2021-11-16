@@ -7,11 +7,13 @@ export default {
 };
 
 export const Regular = (): JSX.Element => (
-  <Header style={'regular'}>Top Five</Header>
+  <Header style="regular">Top Five</Header>
 );
 export const withBackButton = (): JSX.Element => (
-  <Header style={'withBackButton'}>Top Five</Header>
+  <Header style="withBackButton" color="yellow">
+    Top Five
+  </Header>
 );
 export const actionOnly = (): JSX.Element => (
-  <Header style={'actionOnly'}>Top Five</Header>
+  <Header style="actionOnly">Top Five</Header>
 );
