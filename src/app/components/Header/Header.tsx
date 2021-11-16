@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import styled from 'styled-components';
 
 type HeaderProps = {
   children: ReactNode;
+  style: string;
 };
 
-export default function Header({ children }: HeaderProps): JSX.Element {
-  const [header, setHeader] = useState('regular');
+export default function Header({ children, style }: HeaderProps): JSX.Element {
+  const [headerStyle, setHeaderStyle] = useState('');
+
+  useEffect(() => setHeaderStyle(style));
+
   return (
     <div>
-      {header === 'regular' ? (
+      {headerStyle === 'regular' && (
         <Container>
           <H1>
             {children}
             <Span>.</Span>
           </H1>
         </Container>
-      ) : header === 'withBackButton' ? (
+      )}
+      {headerStyle === 'withBackButton' && (
         <Container>
           <H1>
             <BackButton>
@@ -38,7 +43,8 @@ export default function Header({ children }: HeaderProps): JSX.Element {
             <Span>.</Span>
           </H1>
         </Container>
-      ) : (
+      )}
+      {headerStyle === 'actionOnly' && (
         <Container>
           <BackButton>
             <Svg
