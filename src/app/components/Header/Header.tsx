@@ -1,12 +1,11 @@
 import React from 'react';
 import type { ReactNode } from 'react';
 import styled from 'styled-components';
-import BookmarkIcon from '../Icons/BackIcon';
+import BackIcon from '../Icons/BackIcon';
 
 type HeaderProps = {
   children: ReactNode;
   style: 'regular' | 'withBackButton' | 'actionOnly';
-  color?: 'yellow';
 };
 
 export default function Header({ children, style }: HeaderProps): JSX.Element {
@@ -20,8 +19,8 @@ export default function Header({ children, style }: HeaderProps): JSX.Element {
       )}
       {style === 'withBackButton' && (
         <H1>
-          <BackButton>
-            <BookmarkIcon color="yellow" />
+          <BackButton color="yellow">
+            <BackIcon />
           </BackButton>
           {children}
           <Span>.</Span>
