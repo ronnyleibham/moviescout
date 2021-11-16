@@ -6,27 +6,31 @@ type TypographyProps = {
   children: React.ReactNode;
 };
 
-function Typography({ type, children }: TypographyProps): JSX.Element {
+export default function Typography({
+  type,
+  children,
+}: TypographyProps): JSX.Element {
   const Heading = ELEMENTMAP[type];
 
   return <Heading>{children}</Heading>;
 }
 
-export default Typography;
-
 const H1 = styled.h1`
   font-size: 1.875rem;
   font-weight: 700;
 `;
+
 const H2 = styled.h2`
   font-size: 1.25rem;
   font-weight: 700;
 `;
+
 const H3 = styled.h3`
   font-size: 1.125rem;
   line-height: 27px;
   font-weight: 700;
 `;
+
 const H4 = styled.h3`
   font-size: 1.125rem;
   font-weight: 400;
