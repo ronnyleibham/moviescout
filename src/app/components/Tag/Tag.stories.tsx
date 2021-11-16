@@ -6,14 +6,10 @@ export default {
   component: Tag,
 };
 
-export const NotActive = (): JSX.Element => (
-  <Tag numberOfItems={3} tagStatus={false}>
-    Action
-  </Tag>
-);
+export const NotActive = (): JSX.Element => <Tag count="3">Action</Tag>;
 export const Active = (): JSX.Element => (
-  <Tag numberOfItems={3} tagStatus={true}>
+  <Tag count="3" active>
     Action
   </Tag>
 );
-export const All = (): JSX.Element => <Tag tagStatus={true}>Action</Tag>;
+export const All = (): JSX.Element => <Tag active>Action</Tag>;
