@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ActionLinkIcon from '../Icons/ActionlinkIcon';
 
 type ActionlinkProps = {
   url: string;
   text: string;
+  hidden: boolean;
 };
 
-function ActionLink({ url, text }: ActionlinkProps): JSX.Element {
-  const [hidden, setHidden] = useState(true);
-
+function ActionLink({ url, text, hidden }: ActionlinkProps): JSX.Element {
   return (
-    <Actionlink
-      href={url}
-      target="_blank"
-      onMouseEnter={() => setHidden(false)}
-      onMouseLeave={() => setHidden(true)}
-    >
+    <Actionlink href={url} target="_blank">
       <LinkText>{text}</LinkText>
       {!hidden && (
         <Icon>
