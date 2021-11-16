@@ -9,8 +9,9 @@ export default function BookmarkIcon(
       height="24"
       viewBox="0 0 24 24"
       width="24"
-      fill="transparent"
+      fill="none"
       strokeWidth="3"
+      stroke="currentColor"
       {...props}
     >
       <path
