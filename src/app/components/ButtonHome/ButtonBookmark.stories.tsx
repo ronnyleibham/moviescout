@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonBookmark from './ButtonBookmark';
+import ButtonBookmark from './ButtonHome';
 
 export default {
   title: 'Component/ButtonBookmark',
