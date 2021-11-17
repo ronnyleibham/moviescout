@@ -5,6 +5,10 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    :root {
+        --color-primary: #ffc700;
+    }
+
     body {
     margin: 0;
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
